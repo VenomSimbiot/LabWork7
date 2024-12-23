@@ -16,7 +16,7 @@ public:
                 system = vvod("Введите основание системы счисления (> 1): ");
             }
             std::cout << "Введите первое число: ";std::cin >> a;
-            std::cout << "Введите первое число: ";std::cin >> b;
+            std::cout << "Введите второе число: ";std::cin >> b;
             int k1 = 0, k2 = 0;
             int max = a.length() > b.length() ? a.length() : b.length();
             max++;
@@ -26,6 +26,7 @@ public:
             arr2 = toDopCode(arr2, max, system);
             std::cout << "Сумма чисел в этой системе счисления: ";
             arr1 = sum(arr1, arr2, max, system);
+            
             vivod(arr1, max);
             delete[] arr1;
             delete[] arr2;
@@ -173,6 +174,11 @@ public:
             arr1[c - 1 - i] += arr2[c - 1 - i];
         }
         arr1 = othernum(arr1, c, system);
+        if (arr1[0] == 1)
+        {
+            arr1 = toDopCode(arr1, c, system);
+        }
+        
         return arr1;
     }
 
